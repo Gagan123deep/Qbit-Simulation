@@ -1,0 +1,7 @@
+.julia
+*.out
+*.err
+*.png
+*.pdf
+*.log
+.ipynb_checkpoints/
