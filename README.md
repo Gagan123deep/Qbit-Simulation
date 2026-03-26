@@ -1,4 +1,4 @@
-# Open Quantum Kraus Simulation
+
 
 Julia simulation of two-qubit open quantum system dynamics using Kraus operators and tensor-network methods. The project models stochastic loss, gain, dephasing, and measurement channels on a Bell pair, then tracks the resulting trajectory and entanglement entropy.
 
