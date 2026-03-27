@@ -13,7 +13,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     nqubits = 10
-    nsteps = 24
+    nsteps = 100
     measurement_probability = 0.1
     seed = 7
 
