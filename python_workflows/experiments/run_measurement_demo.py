@@ -1,5 +1,11 @@
-import numpy as np
+import sys
 from pathlib import Path
+
+import numpy as np
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from python_workflows.core import measurements
 
@@ -14,7 +20,7 @@ def basis_terms(state, nqubits, cutoff=1e-10):
 
 
 def main():
-    output_dir = Path(__file__).resolve().parents[2] / "figures" / "python"
+    output_dir = PROJECT_ROOT / "figures" / "python"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     nqubits = 2

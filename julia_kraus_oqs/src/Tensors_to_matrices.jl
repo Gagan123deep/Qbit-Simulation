@@ -8,9 +8,9 @@ export psi_MPS_to_vec, visualize_state
 
 Contract an MPS into a full state vector.
 """
-function psi_MPS_to_vec(psi)
+function psi_MPS_to_vec(psi::MPS)
     psi_full = reduce(*, psi)
-    return vec(Array(psi_full, siteinds(psi)))
+    return vec(Array(psi_full, Tuple(siteinds(psi))...))
 end
 
 """

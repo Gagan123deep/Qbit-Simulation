@@ -1,35 +1,37 @@
+import sys
 from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from python_workflows.core import random_circuit
 
 
 def main():
-    output_dir = Path(__file__).resolve().parents[2] / "figures" / "python"
+    output_dir = PROJECT_ROOT / "figures" / "python"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    nqubits = 4
+    nqubits = 10
     nsteps = 24
-    measurement_probability = 0.2
+    measurement_probability = 0.1
+    seed = 7
 
-    entropies = random_circuit.random_state(
+    result = random_circuit.run_random_circuit(
         N=nqubits,
         nsteps=nsteps,
         measurement_probability=measurement_probability,
+        seed=seed,
     )
+    entropies = result.entropies
 
     print("Random circuit entropy trajectory")
     print("N =", nqubits)
     print("nsteps =", nsteps)
     print("measurement_probability =", measurement_probability)
+    print("seed =", seed)
     print("entropies =", entropies.tolist())
-
-    csv_path = output_dir / "random_circuit_entropy.csv"
-    with csv_path.open("w", encoding="utf-8") as handle:
-        handle.write("step,entropy\n")
-        for step, value in enumerate(entropies, start=1):
-            handle.write(f"{step},{value}\n")
-
-    print(f"Saved data to {csv_path}")
+    print("measurements_per_step =", result.measurements_per_step.tolist())
 
     try:
         import matplotlib.pyplot as plt

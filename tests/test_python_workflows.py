@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from python_workflows.core import apply_single_qubit, entropy, measurements, qft, single_qubit_gates
+from python_workflows.core import apply_single_qubit, entropy, measurements, qft, random_circuit, single_qubit_gates
 
 
 class PythonWorkflowTests(unittest.TestCase):
@@ -31,6 +31,12 @@ class PythonWorkflowTests(unittest.TestCase):
     def test_entropy_of_product_state_is_zero(self):
         state = np.array([1.0, 0.0, 0.0, 0.0], dtype=np.complex128)
         self.assertAlmostEqual(entropy.entropy(state, 1, 2), 0.0, places=12)
+
+    def test_random_circuit_seed_is_reproducible(self):
+        result_a = random_circuit.run_random_circuit(4, 8, 0.2, seed=11)
+        result_b = random_circuit.run_random_circuit(4, 8, 0.2, seed=11)
+        np.testing.assert_allclose(result_a.entropies, result_b.entropies, atol=1e-12)
+        np.testing.assert_array_equal(result_a.measurements_per_step, result_b.measurements_per_step)
 
 
 if __name__ == "__main__":

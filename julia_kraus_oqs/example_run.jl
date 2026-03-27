@@ -1,7 +1,6 @@
 import Pkg
 Pkg.activate(@__DIR__)
 
-using DelimitedFiles
 using Plots
 
 include(joinpath(@__DIR__, "src", "KrausSimulation.jl"))
@@ -26,11 +25,6 @@ result = KrausSimulation.run_protocol(params)
 steps = collect(1:params.nsteps)
 entropy_plot = plot(steps, result.entropies, lw=2, label="Entropy", xlabel="Step", ylabel="Entropy")
 savefig(entropy_plot, joinpath(output_dir, "kraus_entropy.png"))
-writedlm(
-    joinpath(output_dir, "kraus_entropy.csv"),
-    hcat(steps, result.entropies),
-    ',',
-)
 
 println("Raw Kraus indices:")
 println(result.raw_outcomes)
@@ -38,5 +32,4 @@ println("Physical measurement outcomes (+1, -1, 0 for no-jump):")
 println(result.measurement_outcomes)
 println("Entropies: ", result.entropies)
 println("Saved entropy plot to ", joinpath(output_dir, "kraus_entropy.png"))
-println("Saved entropy data to ", joinpath(output_dir, "kraus_entropy.csv"))
 KrausSimulation.visualize_state(KrausSimulation.psi_MPS_to_vec(result.final_state), params.N)

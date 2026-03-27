@@ -48,6 +48,8 @@ Runnable Python demos:
   Demonstrates projective measurement on a Bell state.
 - `run_random_circuit_demo.py`
   Demonstrates entropy evolution in a random circuit with probabilistic measurement.
+- `run_random_circuit_comparison.py`
+  Compares average entropy trajectories for different measurement probabilities.
 
 ### `julia_kraus_oqs/`
 
@@ -110,12 +112,9 @@ julia --project=julia_kraus_oqs julia_kraus_oqs/test/runtests.jl
 
 - `python_workflows/experiments/run_unitary_qft_demo.py` saves a text summary to `figures/python/unitary_qft_demo.txt`
 - `python_workflows/experiments/run_measurement_demo.py` saves a text summary to `figures/python/measurement_demo.txt`
-- `python_workflows/experiments/run_random_circuit_demo.py` saves:
-  - `figures/python/random_circuit_entropy.csv`
-  - `figures/python/random_circuit_entropy.png`
-- `julia_kraus_oqs/example_run.jl` saves:
-  - `figures/julia/kraus_entropy.csv`
-  - `figures/julia/kraus_entropy.png`
+- `python_workflows/experiments/run_random_circuit_demo.py` saves `figures/python/random_circuit_entropy.png`
+- `python_workflows/experiments/run_random_circuit_comparison.py` saves `figures/python/random_circuit_probability_comparison.png`
+- `julia_kraus_oqs/example_run.jl` saves `figures/julia/kraus_entropy.png`
 
 ## What this repo demonstrates
 
