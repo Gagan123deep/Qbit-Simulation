@@ -62,30 +62,6 @@ Standalone Julia project for two-qubit open-system dynamics:
 - entanglement-entropy evolution using MPS / ITensors
 - a notebook entry point in `julia_kraus_oqs/notebooks/Program_for_OQS_sim.ipynb`
 
-### `docs/`
-
-Short supporting documentation:
-
-- `CV_MAP.md`
-
-### `figures/`
-
-Saved outputs from the example scripts. The directory is created so generated plots and text summaries have a predictable location.
-
-### `tests/` and `julia_kraus_oqs/test/`
-
-Lightweight Python and Julia checks for basic gate, measurement, QFT, Bell-state, and Kraus-channel sanity.
-
-## How This Maps to a CV
-
-This repository supports statements such as:
-
-- Built Python and Julia quantum simulation workflows, including a Julia MPS/ITensors simulator for two-qubit open-system dynamics.
-- Implemented unitary gate evolution, QFT circuits, projective measurement, and Kraus-operator-based generalized measurement channels.
-- Simulated stochastic decoherence trajectories and tracked entanglement entropy under measurement and dephasing.
-
-The exact mapping from each claim to source files is documented in `docs/CV_MAP.md`.
-
 ## Installation
 
 ### Python
@@ -156,8 +132,7 @@ julia --project=julia_kraus_oqs julia_kraus_oqs/test/runtests.jl
 ## Scope
 
 - The Python side covers state-vector workflows for gates, QFT, measurement, and entropy experiments.
-- The Julia side is intentionally limited to a strictly 2-qubit open quantum system.
-- The repository does not try to be a general-purpose quantum framework; it is a compact simulation project built around the current coursework and research scope.
+- The repository does not try to be a general-purpose quantum framework; it is a compact simulation project built around the current coursework.
 
 ## Suggested reading order
 
@@ -169,26 +144,4 @@ If you are viewing this repository for the first time:
 4. then move to `julia_kraus_oqs/example_run.jl`
 5. for the main Julia logic, read `julia_kraus_oqs/src/Kraus_protocol.jl`
 
-## Technical Highlights
 
-- Python
-- Julia
-- NumPy
-- ITensors / ITensorMPS
-- tensor networks / matrix product states
-- open quantum systems
-- Kraus operators
-- QFT
-- projective and generalized measurement
-- entanglement entropy
-
-## CV-ready description
-
-Python and Julia quantum simulation repository covering state-vector gate evolution, QFT, projective measurement, random-circuit entropy dynamics, and a 2-qubit Kraus-based open-system simulation using ITensors / ITensorMPS.
-
-## Possible next improvements
-
-- add saved figures and example output plots
-- add tests for the Python workflows
-- add parameter-sweep scripts for the Julia Kraus simulator
-- add a cleaner comparison notebook between Python and Julia workflows
