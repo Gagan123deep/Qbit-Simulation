@@ -9,6 +9,7 @@ from . import single_qubit_gates as sqg
 
 
 def random_state(N, nsteps, measurement_probability):
+    """Return an entropy trajectory for a random circuit with probabilistic measurement."""
     hadamard = sqg.Hadamard()
     pauli_x = sqg.X_gate()
     t_gate = sqg.T_gate()

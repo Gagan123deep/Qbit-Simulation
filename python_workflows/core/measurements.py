@@ -11,6 +11,7 @@ def _projectors():
 
 
 def measure_site(N, p, psi):
+    """Measure qubit ``p`` in the computational basis and return outcome and post-state."""
     p0, p1 = _projectors()
 
     psi0 = single_qubit.Q_Operate(N, p, psi, p0)
@@ -25,6 +26,7 @@ def measure_site(N, p, psi):
 
 
 def measure_siteX(N, p, psi):
+    """Measure qubit ``p`` in the X basis by rotating with a Hadamard gate."""
     hadamard = sqg.Hadamard()
     rotated = single_qubit.Q_Operate(N, p, psi, hadamard)
     outcome, post_rotated = measure_site(N, p, rotated)
@@ -33,6 +35,7 @@ def measure_siteX(N, p, psi):
 
 
 def measure_all_sites(psi, N):
+    """Measure every qubit in sequence and return the observed computational basis index."""
     bits = []
     for p in range(1, N + 1):
         outcome, psi = measure_site(N, p, psi)

@@ -41,6 +41,11 @@ function build_channels(params::SimulationParams)
     return loss_ops, z_measure, x_measure
 end
 
+"""
+    prepare_bell_state(sites)
+
+Prepare a Bell state on two qubit sites represented as an MPS.
+"""
 function prepare_bell_state(sites)
     length(sites) >= 2 || error("prepare_bell_state requires at least two qubits.")
 
@@ -53,6 +58,12 @@ function prepare_bell_state(sites)
     return normalize!(psi)
 end
 
+"""
+    protocol(psi, sites, loss_ops, z_measure, x_measure, N, nsteps; show_plot=true, print_states=true)
+
+Run the two-qubit Kraus trajectory and return the final state, entropy history,
+raw Kraus outcomes, measurement outcomes, and full-vector snapshots for display.
+"""
 function protocol(psi, sites, loss_ops, z_measure, x_measure, N, nsteps; show_plot=true, print_states=true)
     entropies = zeros(Float64, nsteps)
     loss_raw_outcomes = Matrix{Int}(undef, 2, nsteps)
@@ -96,6 +107,11 @@ function protocol(psi, sites, loss_ops, z_measure, x_measure, N, nsteps; show_pl
     return psi, entropies, loss_raw_outcomes, raw_outcomes, measurement_outcomes, state_history
 end
 
+"""
+    run_protocol(params; psi0=nothing, show_plot=params.show_plot, print_states=params.print_states)
+
+Run the configured two-qubit open-system simulation and return a `SimulationResult`.
+"""
 function run_protocol(params::SimulationParams; psi0=nothing, show_plot=params.show_plot, print_states=params.print_states)
     validate_params(params)
 

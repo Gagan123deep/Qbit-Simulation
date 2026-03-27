@@ -7,10 +7,13 @@ from . import gates as g
 
 
 def CRk(k):
-    CRk=np.identity(4,dtype=np.complex128)
-    CRk[3,3]=np.exp(-1j*np.pi/(2**k))
+    """Return a controlled phase gate used in the QFT circuit."""
+    CRk = np.identity(4, dtype=np.complex128)
+    CRk[3, 3] = np.exp(-1j * np.pi / (2**k))
     return CRk
-SWAP=g.gates.SWAP
+
+
+SWAP = g.gates.SWAP
 
 
 def QFT_M_qubits_br(state, m):

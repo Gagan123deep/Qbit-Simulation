@@ -1,4 +1,5 @@
 import numpy as np
+from pathlib import Path
 
 from python_workflows.core import measurements
 
@@ -13,6 +14,9 @@ def basis_terms(state, nqubits, cutoff=1e-10):
 
 
 def main():
+    output_dir = Path(__file__).resolve().parents[2] / "figures" / "python"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     nqubits = 2
     psi = np.zeros(2**nqubits, dtype=np.complex128)
     psi[0] = 1 / np.sqrt(2)
@@ -29,6 +33,23 @@ def main():
     print("\nProjective X measurement on qubit 2:")
     print("Outcome:", x_outcome)
     print(basis_terms(post_x, nqubits))
+
+    output_path = output_dir / "measurement_demo.txt"
+    output_path.write_text(
+        "Input Bell state:\n"
+        + basis_terms(psi, nqubits)
+        + "\n\nProjective Z measurement on qubit 1:\nOutcome: "
+        + str(z_outcome)
+        + "\n"
+        + basis_terms(post_z, nqubits)
+        + "\n\nProjective X measurement on qubit 2:\nOutcome: "
+        + str(x_outcome)
+        + "\n"
+        + basis_terms(post_x, nqubits)
+        + "\n",
+        encoding="utf-8",
+    )
+    print(f"\nSaved summary to {output_path}")
 
 
 if __name__ == "__main__":
