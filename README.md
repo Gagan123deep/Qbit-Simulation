@@ -1,6 +1,6 @@
 # Python and Julia Quantum Simulation Workflows
 
-Repository containing small quantum-simulation workflows in Python and Julia. The Python side covers state-vector gate evolution, QFT, projective measurement, and random-circuit entropy dynamics. The Julia side implements a strictly 2-qubit open quantum system with Kraus operators, stochastic trajectories, and entanglement-entropy tracking using ITensors / ITensorMPS.
+Repository containing small quantum-simulation workflows in Python and Julia. The Python side covers state-vector gate evolution, QFT, projective measurement, and random-circuit entropy dynamics. The Julia side implements a 2-qubit open quantum system with Kraus operators, stochastic trajectories, and entanglement-entropy tracking using ITensors / ITensorMPS.
 
 This repository is organized to match three core project themes:
 
