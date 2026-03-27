@@ -12,9 +12,9 @@ def main():
     output_dir = PROJECT_ROOT / "figures" / "python"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    nqubits = 4
-    nsteps = 24
-    ntrajectories = 12
+    nqubits = 8
+    nsteps = 100
+    ntrajectories = 20
     measurement_probabilities = [0.0, 0.1, 0.2, 0.4]
     seed = 21
 
