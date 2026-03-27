@@ -10,8 +10,6 @@ This repository is organized to match three core project themes:
 
 ## Overview
 
-The portfolio combines two complementary tracks:
-
 - a **Python state-vector toolkit** for gate-based circuit evolution, Quantum Fourier Transform (QFT), projective measurement, entropy calculation, and random-circuit experiments
 - a **Julia open-quantum-system simulator** using `ITensors` / `ITensorMPS` to model two-qubit Kraus dynamics with loss, gain, dephasing, and measurement
 
