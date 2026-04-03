@@ -15,14 +15,15 @@ This repository is organized to match three core project themes:
 
 Together, these workflows provide a compact codebase for coursework, research applications, and CV use.
 
-## What This Repository Demonstrates
+## What this repo demonstrates
 
-- Single- and two-qubit unitary evolution in Python
-- Quantum Fourier Transform circuits and verification against a discrete Fourier transform
-- Projective measurement in different bases
-- Generalized measurement and decoherence channels using Kraus operators
-- Open-system stochastic trajectory simulation
-- Entanglement-entropy tracking in both Python and Julia workflows
+- Python state-vector simulation for unitary gates and simple circuit models
+- QFT implementation and a direct comparison with FFT output for a simple input state
+- Projective measurement in Z and X bases
+- Random-circuit entropy dynamics under probabilistic measurement
+- Julia two-qubit open-system simulation with Kraus operators
+- ITensors / ITensorMPS usage for a small MPS-based workflow
+- Stochastic trajectory tracking and entanglement-entropy calculation
 
 ## Repository Structure
 
@@ -116,15 +117,6 @@ julia --project=julia_kraus_oqs julia_kraus_oqs/test/runtests.jl
 - `python_workflows/experiments/run_random_circuit_comparison.py` saves `figures/python/random_circuit_probability_comparison.png`
 - `julia_kraus_oqs/example_run.jl` saves `figures/julia/kraus_entropy.png`
 
-## What this repo demonstrates
-
-- Python state-vector simulation for unitary gates and simple circuit models
-- QFT implementation and a direct comparison with FFT output for a simple input state
-- Projective measurement in Z and X bases
-- Random-circuit entropy dynamics under probabilistic measurement
-- Julia two-qubit open-system simulation with Kraus operators
-- ITensors / ITensorMPS usage for a small MPS-based workflow
-- Stochastic trajectory tracking and entanglement-entropy calculation
 
 ## Scope
 
